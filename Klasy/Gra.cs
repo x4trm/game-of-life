@@ -2,10 +2,10 @@ public class Gra
 {
   private Siatka _siatka;
 
-  public Gra(int liczbaRzedow, int liczbaKolumn)
-  {
-    _siatka = new Siatka(liczbaRzedow,liczbaKolumn);
-  }
+  // public Gra(int liczbaRzedow, int liczbaKolumn, int ziarno)
+  // {
+  //   _siatka = new Siatka(liczbaRzedow,liczbaKolumn, ziarno);
+  // }
 
   public Gra(Siatka siatka)
   {

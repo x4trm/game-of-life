@@ -4,10 +4,10 @@ public class Siatka
   private const int Zywa = 1;
   private const int Martwa = 0;
 
-  public Siatka(int liczbaRzedow, int liczbaKolumn)
+  public Siatka(int liczbaRzedow, int liczbaKolumn, int ziarno)
   {
     _tablicaKomórek = new int[liczbaRzedow, liczbaKolumn];
-    Random random = new Random();
+    Random random = new Random(ziarno);
     for (int i = 0; i < liczbaRzedow; i++)
     {
       for (int j = 0; j < liczbaKolumn; j++)
