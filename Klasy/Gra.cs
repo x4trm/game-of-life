@@ -7,13 +7,23 @@ public class Gra
     _siatka = new Siatka(liczbaRzedow,liczbaKolumn);
   }
 
+  public Gra(Siatka siatka)
+  {
+    _siatka = siatka;
+  }
+
   public void Uruchom(int liczbaIteracji)
   {
     for(int i = 0; i < liczbaIteracji; i++)
     {
-      Console.WriteLine($"Iteracja: {i}: ");
+      Console.Clear();
+      Console.ForegroundColor = ConsoleColor.Black;
+      Console.BackgroundColor = ConsoleColor.White; 
+      Console.WriteLine($"Iteracja: {i+1}: ");
+      Console.ResetColor();
       _siatka.ZrobKrok();
       _siatka.Wydrukuj();
+      Thread.Sleep(200);
     }
   }
 }

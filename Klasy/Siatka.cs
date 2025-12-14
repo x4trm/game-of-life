@@ -18,6 +18,18 @@ public class Siatka
     }
   }
 
+  public Siatka(int[,] tablicaPoczatkowa,int liczbaRzedow, int liczbaKolumn)
+  {
+    _tablicaKomórek = new int[liczbaRzedow, liczbaKolumn];
+    for (int i = 0; i < tablicaPoczatkowa.GetLength(0); i++)
+    {
+      for (int j = 0; j < tablicaPoczatkowa.GetLength(1); j++)
+      {
+        _tablicaKomórek[i, j] = tablicaPoczatkowa[i,j];
+      }
+    }
+  }
+
   public void ZrobKrok()
   {
     int[,] noweKomorki = new int[_tablicaKomórek.GetLength(0), _tablicaKomórek.GetLength(1)];
@@ -78,21 +90,26 @@ public class Siatka
 
   public void Wydrukuj()
   {
+    string wydruk = new string('-',_tablicaKomórek.GetLength(1)*2) + "\n";
     for(int i = 0; i < _tablicaKomórek.GetLength(0); i++)
     {
       for(int j = 0; j< _tablicaKomórek.GetLength(1); j++)
       {
         if (_tablicaKomórek[i, j] == Zywa)
         {
-          Console.Write("O");
+          wydruk += "X";
         }
         else
         {
-          Console.Write(" ");
+          wydruk += " ";
         }
-        Console.Write(" ");
+        wydruk += " ";
       }
-      Console.WriteLine();
+      wydruk +="|\n";
     }
+    wydruk += new string('-',_tablicaKomórek.GetLength(1)*2);
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine(wydruk);
+    Console.ResetColor();
   }
 }
